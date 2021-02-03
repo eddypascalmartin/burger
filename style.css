@@ -17,13 +17,13 @@ body {
   height: 100vh;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
-  background-color: #b3b3cc;
+  background-color: #fff;
 }
 
 body::after {
   content: "";
   clip-path: polygon(0 0, 80% 0, 50% 100%, 0 100%);
-  background-color: #2b47e9;
+  background-color: #181a1d;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -87,7 +87,13 @@ p {
   margin: 0 auto;
   grid-gap: 20px;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: "entete entete entete" "menu menu menu" "principal annonce1 annonce1" "pied-page pied-page pied-page";
+  grid-template-areas: "entete entete entete" "menu menu menu" "annonce1 annonce1 annonce1" "principal principal principal" "pied-page pied-page pied-page";
+}
+
+@media (min-width: 1000px) {
+  .grille {
+    grid-template-areas: "entete entete entete" "menu menu menu" "principal annonce1 annonce1" "pied-page pied-page pied-page";
+  }
 }
 
 .entete {
