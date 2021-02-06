@@ -5,6 +5,45 @@ variable
 mixins
 ------------------------------------------ */
 /* ---------------------------------------
+animation
+------------------------------------------ */
+/* ---------------------------------------------------------
+Animation de la page d.accueil
+------------------------------------------------------------*/
+.animation div {
+  animation: anim-entete 1s both cubic-bezier(0, 1.08, 1, 1.17);
+}
+
+@keyframes anim-entete {
+  0% {
+    transform: translateX(1000px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animation div:nth-of-type(1) {
+  animation-delay: 0.5s;
+}
+
+.animation div:nth-of-type(2) {
+  animation-delay: 1s;
+}
+
+.animation div:nth-of-type(3) {
+  animation-delay: 1.5s;
+}
+
+.animation div:nth-of-type(4) {
+  animation-delay: 2s;
+}
+
+.animation div:nth-of-type(5) {
+  animation-delay: 2.5s;
+}
+
+/* ---------------------------------------
 layout
 ------------------------------------------ */
 * {
@@ -106,6 +145,41 @@ p {
 
 .annonce1 {
   grid-area: annonce1;
+}
+
+.principal {
+  grid-area: principal;
+}
+
+.pied-page {
+  grid-area: pied-page;
+}
+
+.entete {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.entete section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.entete section div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: blue;
+}
+
+.annonce1 {
   background-color: #efebc5;
   color: #5e6e81;
   border-radius: 10px;
@@ -125,7 +199,6 @@ p {
   margin: 20px;
   background-color: #efebc5;
   color: #1c2127;
-  grid-area: annonce2;
 }
 
 .annonce2 section {
@@ -135,12 +208,13 @@ p {
 }
 
 .principal {
-  display: grid;
-  place-items: center;
-  grid-area: principal;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.pied-page {
-  grid-area: pied-page;
+.principal h3 {
+  padding: 1rem 0 1rem 0;
 }
 /*# sourceMappingURL=style.css.map */
