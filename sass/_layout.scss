@@ -7,9 +7,12 @@ body {
     width: 100vw;
     height: 100vh;
     font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
+    font-size: 1rem;
     // background-color: rgb(179, 179, 204);
     background-color: #fff;
+    @include desktop {
+        font-size: 2rem;
+    }
 
 }
 
@@ -61,19 +64,27 @@ p {
     border: 1px solid #666;
     background-color: transparent;
     color: wheat;
-    font-size: 3rem;
+    font-size:2rem;
     margin-left: 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    @include desktop {
+        font-size: 3rem;
+    }
 }
 
 .bloc img {
-    width: 100px;
-    height: 100px;
+    width: 40px;
+    height: 40px;
     display: block;
     border-radius: 50%;
     margin-right: 15px;
+    @include desktop {
+        width: 100px;
+        height: 100px;  
+    }
+
 }
 
 .grille {
@@ -125,11 +136,13 @@ p {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
     section {
-        display :flex;
+        display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width : 50%;
+        width: 50%;
+
         div {
             display: flex;
             align-items: center;
@@ -150,24 +163,25 @@ p {
     box-shadow: 7px 3px 11px 4px #757472;
     padding: 42px;
     margin: 20px;
+    transform: scale(1);
+    transition: transform .25s;
+    section {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
 
     div {
         font-size: .4em;
         display: flex;
         align-items: center;
+        justify-content: flex-start;
     }
-}
 
-.annonce2 {
-    padding: 42px;
-    margin: 20px;
-    background-color: #efebc5;
-    color: #1c2127;
-
-    section {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
+    &:hover {
+        transform: scale(1.01);
     }
 
 }
@@ -177,8 +191,9 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     h3 {
-        padding : 1rem 0 1rem 0;
+        padding: 1rem 0 1rem 0;
     }
 
 }
