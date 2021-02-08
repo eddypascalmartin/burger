@@ -4,22 +4,26 @@
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-    // background-color: rgb(179, 179, 204);
-    background-color: #fff;
     @include desktop {
-        font-size: 2rem;
+        width: 100vw;
+        height: 100vh; 
+    }
+    
+    font-family: 'Montserrat', sans-serif;
+    // font-size: 12px;
+    font-size: clamp(.5rem, #{"-0.875rem + 8.333vw"}, 3.5rem);
+    background-color: couleur(primaire);
+    @include desktop {
+        font-size: 15px;
+        background-color: #dee4ea;;
     }
 
 }
 
-
+@include desktop{
 body::after {
     content: "";
-    clip-path: polygon(0 0, 80% 0, 50% 100%, 0 100%);
+    //clip-path: polygon(0 0, 100% 0, 100% 80%, 80% 100%, 0 100%);
     //background-color: rgb(43, 71, 233);
     background-color: couleur(primaire);
     position: absolute;
@@ -30,10 +34,13 @@ body::after {
     left: 0;
     right: 0;
     z-index: -1;
+    clip-path: polygon(0 0, 80% 0, 50% 100%, 0 100%);
+    }
 }
 
 h1 {
-    font-size: 4rem;
+    // font-size: 4rem;
+    font-size: clamp(2rem, #{"-0.875rem + 8.333vw"}, 3.5rem);
 }
 
 h2 {
@@ -41,7 +48,7 @@ h2 {
 }
 
 h3 {
-    font-size: 2rem;
+    font-size: clamp(2rem, #{"-0.875rem + 8.333vw"}, 3.5rem);
 }
 
 h4 {
@@ -49,7 +56,8 @@ h4 {
 }
 
 h5 {
-    font-size: .8rem;
+
+    font-size: clamp(.7rem, #{"-0.875rem + 8.333vw"}, 1.4rem);
 }
 
 h6 {
@@ -61,7 +69,7 @@ p {
 }
 
 .bloc {
-    border: 1px solid #666;
+    // border: 1px solid #666;
     background-color: transparent;
     color: wheat;
     font-size:2rem;
@@ -81,8 +89,8 @@ p {
     border-radius: 50%;
     margin-right: 15px;
     @include desktop {
-        width: 100px;
-        height: 100px;  
+        width: 60px;
+        height: 60px;  
     }
 
 }
@@ -93,6 +101,7 @@ p {
     margin: 0 auto;
     grid-gap: 20px;
     grid-template-columns: 1fr 1fr 1fr;
+  
 
     grid-template-areas:
         "entete entete entete"
@@ -102,10 +111,12 @@ p {
         "pied-page pied-page pied-page";
 
     @include desktop {
+        width: 95%;
+     
         grid-template-areas:
             "entete entete entete"
             "menu menu menu"
-            "principal annonce1 annonce1"
+            "principal principal annonce1"
             "pied-page pied-page pied-page";
     }
 }
@@ -136,21 +147,29 @@ p {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-top: 20px;
 
     section {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 50%;
+        width: 70%;
 
         div {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
+            width: 35px;
+            height: 35px;
+            font-size: 1.2rem;
             border-radius: 50%;
-            background-color: blue;
+            background-color: #0077ff;
+            @include desktop {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
         }
     }
 }
@@ -161,8 +180,8 @@ p {
     color: #5e6e81;
     border-radius: 10px;
     box-shadow: 7px 3px 11px 4px #757472;
-    padding: 42px;
-    margin: 20px;
+    padding: 10px;
+    margin: 5px;
     transform: scale(1);
     transition: transform .25s;
     section {
@@ -174,16 +193,21 @@ p {
     }
 
     div {
-        font-size: .4em;
+        font-size: 1rem;
         display: flex;
         align-items: center;
         justify-content: flex-start;
+
     }
 
     &:hover {
         transform: scale(1.01);
     }
 
+    @include desktop{
+        padding: 42px;
+        margin: 20px;
+    }
 }
 
 .principal {

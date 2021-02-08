@@ -14,7 +14,7 @@
 <body>
     <section class="grille">
         <header class="bloc entete">
-            <h1>Entête</h1>
+            <h1>TIM</h1>
             <section class="animation">
                 <div>1</div>
                 <div>2</div>
@@ -23,9 +23,21 @@
                 <div>5</div>
             </section>
         </header>
-        <nav class="bloc menu">
-            <h4>Menu</h4>
-        </nav>
+        <section class="menu">
+            <input type="checkbox" name="chkBurger" id="chkBurger">
+            <label for="chkBurger">
+                <img id="burger" src="https://s2.svgbox.net/hero-outline.svg?ic=menu-alt-1&color=fff">
+            </label>
+            <nav>
+                <ul>
+                    <li><a href="#"><img src="https://s2.svgbox.net/hero-outline.svg?ic=bell&color=8759f3"></a></li> 
+                    <li><a href="#"><img src="https://s2.svgbox.net/hero-outline.svg?ic=beaker&color=8759f3"></a></li> 
+                    <li><a href="#"><img src="https://s2.svgbox.net/hero-outline.svg?ic=chat&color=8759f3"></a></li> 
+                    <li><a href="#"><img src="https://s2.svgbox.net/hero-outline.svg?ic=cloud-download&color=8759f3"></a></li> 
+                    <li><a href="#"><img src="https://s2.svgbox.net/hero-outline.svg?ic=cog&color=8759f3"></a></li>
+                </ul>
+            </nav>
+        </section>
         <sidebar class="bloc annonce1">
             Annonce #1
             <section>
@@ -44,9 +56,40 @@
             <h3>Web</h3>
         </main>
         <footer class="bloc pied-page">
-            Pied de page
+            <h5>Collège de Maisonneuve</h5> 
         </footer>
     </section>
 </body>
-
+<script>
+    let nav = document.querySelector('.menu nav')
+    let burger = document.getElementById('burger')
+    let aNavLi = document.querySelectorAll('nav ul li')
+    let burgerOpen = false
+    burger.addEventListener('mousedown', ()=>{
+        if (burgerOpen == false) {
+           nav.style.clipPath = "ellipse(100% 100% at 50% 50%)"  
+           burgerOpen = true
+           burger.style.transitionDelay = "0s"
+           burger.style.borderRadius = "5rem 0 0 5rem"
+           let i=0;
+           for (let i=0 ; i<aNavLi.length ; i++)
+           {
+            aNavLi[i].firstElementChild.style.opacity = 1;
+            aNavLi[i].firstElementChild.style.transitionDelay = ((i+1)*.1)+'s'
+           }
+        }
+        else
+        {
+        nav.style.clipPath = "ellipse(50% 100% at -50% 50%)" 
+        burgerOpen = false 
+        burger.style.transitionDelay = "1.0s"
+        burger.style.borderRadius = "5rem"
+        for (let i=0 ; i<aNavLi.length ; i++)
+           {
+            aNavLi[aNavLi.length-i-1].firstElementChild.style.opacity = 0;
+            aNavLi[aNavLi.length-i-1].firstElementChild.style.transitionDelay = ((i+1)*.1)+'s'
+           } 
+        }
+    })
+</script>
 </html>

@@ -1,0 +1,71 @@
+.menu {
+    display: flex;
+    align-items: center;
+
+    img {
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        color: #fff;
+        border-radius: 5rem;
+    }
+
+    #chkBurger {
+        display : none;
+    }
+    #burger {
+        display: block;
+        background-color: rgb(160, 139, 192);
+        padding: 1rem;
+        border-radius: 5rem;
+        transition : border-radius .1s;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        padding: .6rem;
+        background-color: couleur(fonce);
+        border-radius: 0 5rem 5rem 0;
+        transition: clip-path 1.2s;
+
+        clip-path: ellipse(50% 100% at -50% 50%);
+    
+
+        ul {
+            display: flex;
+            align-items: center;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+               
+
+                a {
+                    opacity : 0;
+                    display: block;
+                    margin: 0 .5rem;
+                    padding: .5rem;
+                    transition: background-color .3s, opacity .1s;
+                    border-radius: 50%;
+                    color: rgb(150, 113, 211);
+                    &:hover {
+                        background-color: rgb(50, 56, 68);
+                    }
+
+                    img {
+                        width: 1.8rem;
+                        height: 1.8rem;
+                        
+                    }
+                }
+
+             
+            }
+        }
+
+    }
+
+
+}

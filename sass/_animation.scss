@@ -22,7 +22,7 @@ $columns: 5;
 /* ---------------------------------------------------------
 Animation de la section principale
 ------------------------------------------------------------ */
-
+@include desktop {
 $position-initial : (
     1 : translateY(-400px),
     2 : translateY(-700px),
@@ -43,4 +43,5 @@ $nbElement: 5;
     .principal h3:nth-of-type(#{$i}) {
         animation : anim-#{$i} 1s $i#{s}  both cubic-bezier(0, 1.08, 1, 1.17);
     }
-}    
+}  
+} 
