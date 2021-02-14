@@ -4,15 +4,21 @@ Animation de la page d'accueil
 
 .animation div {
     //transform: translateX(1000px);
-    animation : anim-entete 1s  both cubic-bezier(0,1.08,1,1.17);
+    animation: anim-entete 1s both cubic-bezier(0, 1.08, 1, 1.17);
 }
 
 @keyframes anim-entete {
-    0% {transform: translateX(1000px);}
-    100% {transform: translateX(0);}
+    0% {
+        transform: translateX(1000px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
 
 $columns: 5;
+
 @for $i from 1 through $columns {
     .animation div:nth-of-type(#{$i}) {
         animation-delay: .5*$i#{s};
@@ -23,25 +29,30 @@ $columns: 5;
 Animation de la section principale
 ------------------------------------------------------------ */
 @include desktop {
-$position-initial : (
-    1 : translateY(-400px),
-    2 : translateY(-700px),
-    3 : translateX(-500px),
-    4 : translateY(700px),
-    5 : translateY(400px)
-);
+    $columns: 5;
 
-$nbElement: 5;
-@for $i from 1 through $nbElement {
-    @keyframes anim-#{$i} {
-        0%{transform: map-get($position-initial , $i)  scale(0);}
-        100%{transform : translate(0) scale(1.3);}
+    @for $i from 1 through $columns {
+        .principal h3:nth-of-type(#{$i}) {
+            animation : anim-#{$i} 1s .5*$i#{s} both cubic-bezier(0, 1.08, 1, 1.17);
+        }
     }
-} 
 
-@for $i from 1 through $nbElement {
-    .principal h3:nth-of-type(#{$i}) {
-        animation : anim-#{$i} 1s $i#{s}  both cubic-bezier(0, 1.08, 1, 1.17);
+    $tabTranslate: (1: translateY(-500px),
+        2: translateY(-600px),
+        3: translateX(-500px),
+        4: translateY(600px),
+        5: translateY(500px));
+
+    @each $i,
+    $elem in $tabTranslate {
+        @keyframes anim-#{$i} {
+            0% {
+                transform: $elem scale(0);
+            }
+
+            100% {
+                transform: translate(0) scale(1.3);
+            }
+        }
     }
-}  
-} 
+}
